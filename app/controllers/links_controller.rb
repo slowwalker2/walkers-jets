@@ -41,6 +41,12 @@ class LinksController < ApplicationController
     render json: {deleted: true}
   end
 
+  def new
+  end
+  
+  def edit
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_link
