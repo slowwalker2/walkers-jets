@@ -8,6 +8,8 @@ gem "jetpacker"
 gem "dynomite"
 gem "dynamoid"
 
+gem 'faraday'
+gem 'faraday_middleware'
 # development and test groups are not bundled as part of the deployment
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -22,3 +24,4 @@ group :test do
   gem 'launchy'
   gem 'capybara'
 end
+
