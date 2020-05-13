@@ -107,6 +107,11 @@ GEM
     crass (1.0.6)
     diff-lcs (1.3)
     dotenv (2.7.5)
+    dynamoid (3.5.0)
+      activemodel (>= 4)
+      aws-sdk-dynamodb (~> 1.0)
+      concurrent-ruby (>= 1.0)
+      null-logger
     dynomite (1.2.5)
       activesupport
       aws-sdk-dynamodb
@@ -180,6 +185,7 @@ GEM
     nio4r (2.5.2)
     nokogiri (1.10.9)
       mini_portile2 (~> 2.4.0)
+    null-logger (0.1.7)
     public_suffix (4.0.5)
     puma (4.3.3)
       nio4r (~> 2.0)
@@ -234,6 +240,7 @@ PLATFORMS
 DEPENDENCIES
   byebug
   capybara
+  dynamoid
   dynomite
   jetpacker
   jets
