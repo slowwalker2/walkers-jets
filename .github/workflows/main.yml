@@ -1,12 +1,12 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Upload to S3
+name: Upload to Lambda
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   deploy:
@@ -14,20 +14,16 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x]
+        ruby: [2.5]
     steps:
       - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - uses: actions/setup-ruby@v1
         with:
-          node-version: ${{ matrix.node-version }}
-      - run: yarn install
-      - run: yarn build
-      - name: Publish to AWS S3
-        uses: opspresso/action-s3-sync@master
+          ruby-version: ${{ matrix.ruby }}
+      - run: bundle install --without test development
+      - name: deploy to AWS Lambda
+        run: JETS_ENV=production jets deploy
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "ap-northeast-1"
-          FROM_PATH: "./build"
-          DEST_PATH: "s3://4terminal.com/"
+          AWS_REGION: 'ap-northeast-1'
