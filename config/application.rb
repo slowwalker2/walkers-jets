@@ -1,6 +1,5 @@
 Jets.application.configure do
   config.project_name = "walkers-jets"
-  config.mode = "html"
 
   config.prewarm.enable = true # default is true
   # config.prewarm.rate = '30 minutes' # default is '30 minutes'
@@ -11,15 +10,11 @@ Jets.application.configure do
   # config.autoload_paths = []
 
   # config.asset_base_url = 'https://cloudfront.domain.com/assets' # example
-
-  config.cors = {
-    "access-control-allow-origin" => "*"
-  } # for '*'' # defaults to false
-
-  config.cors_preflight = {
-    "access-control-allow-methods" => "DELETE,GET,HEAD,OPTIONS,PATCH,PUT",
-    "access-control-allow-headers" => "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent",
-  }
+  config.cors = true
+  #config.cors_preflight = {
+  ##  "access-control-allow-methods" => "DELETE,HEAD,OPTIONS,PATCH,PUT",
+  #  "access-control-allow-headers" => "Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent",
+  #}
   # config.cors = '*.mydomain.com' # for specific domain
 
   # config.function.timeout = 30 # defaults to 30
@@ -41,19 +36,9 @@ Jets.application.configure do
   # The config.function settings to the CloudFormation Lambda Function properties.
   # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-lambda-function.html
   # Underscored format can be used for keys to make it look more ruby-ish.
-
-  # Assets settings
-  # The config.assets.folders are folders within the public folder that will be set
-  # to public-read on s3 and served directly. IE: public/assets public/images public/packs
-  # config.assets.folders = %w[assets images packs]
-  # config.assets.max_age = 3600 # when to expire assets
-  # config.assets.cache_control = nil # IE: "public, max-age=3600" # override max_age for more fine-grain control.
-  # config.assets.base_url = nil # IE: https://cloudfront.com/my/base/path, defaults to the s3 bucket url
-  #                                IE: https://s3-us-west-2.amazonaws.com/demo-dev-s3bucket-1inlzkvujq8zb
-
+ 
   # config.api.endpoint_type = 'PRIVATE' # Default is 'EDGE' https://amzn.to/2r0Iu2L
   # config.api.authorization_type = "AWS_IAM" # default is 'NONE' https://amzn.to/2qZ7zLh
-
 
   # More info: http://rubyonjets.com/docs/routing/custom-domain/
   # config.domain.hosted_zone_name = "example.com"

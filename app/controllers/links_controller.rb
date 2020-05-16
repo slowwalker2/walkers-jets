@@ -24,27 +24,10 @@ class LinksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /links/1
-  def update
-    @link = Link.new(link_params)
-
-    if @link.replace
-      render json: @link, status: :ok
-    else
-      render json: @link.errors, status: :unprocessable_entity
-    end
-  end
-
   # DELETE /links/1
   def delete
     Link.delete(params[:id])
     render json: {deleted: true}
-  end
-
-  def new
-  end
-  
-  def edit
   end
 
   private
