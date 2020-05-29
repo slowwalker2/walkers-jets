@@ -2,11 +2,18 @@ source "https://rubygems.org"
 
 gem "jets"
 
+gem 'bcrypt', '~> 3.1.7'
+
 gem "dynomite"
 gem "dynamoid"
 
 gem 'faraday'
 gem 'faraday_middleware'
+
+gem 'kaminari'
+
+gem "pg", "~> 1.1.3"
+
 # development and test groups are not bundled as part of the deployment
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
