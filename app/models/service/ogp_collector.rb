@@ -24,14 +24,14 @@ module Service
 
       ogp['title'] ||= (meta['description'] || body[/.*<title\s*>(.*)<\/title>.*/i, 1])
       ogp['description'] ||= meta['description']
-      Link.new(
+      {
         title: ogp['title'],
         image: ogp['image'],
         url: ogp['url'],
         description: ogp['description'],
         locale: ogp['locale'],
         site_name: ogp['site_name']
-      )
+      }
     end
   end
 end

@@ -1,3 +1,3 @@
-class Link < ApplicationItem
-  column :id, :title, :image, :url, :description, :locale, :site_name
+class Link < ApplicationRecord
+  has_many :user_links
 end
