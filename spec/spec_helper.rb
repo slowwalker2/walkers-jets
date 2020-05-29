@@ -3,7 +3,6 @@ ENV['JETS_ENV'] ||= "test"
 # Ensures aws api never called. Fixture home folder does not contain ~/.aws/credentails
 ENV['HOME'] = "spec/fixtures/home"
 
-require "byebug"
 require "fileutils"
 require "jets"
 
@@ -12,8 +11,8 @@ Jets.boot
 
 require "jets/spec_helpers"
 
-require 'capybara/rspec'
-Capybara.app = Jets.application
+#require 'capybara/rspec'
+#Capybara.app = Jets.application
 # Capybara.current_driver = :selenium
 # Capybara.app_host = 'http://localhost:8888'
 
